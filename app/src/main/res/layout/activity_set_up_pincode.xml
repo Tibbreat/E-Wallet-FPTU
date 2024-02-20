@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Security.SetUpPINCodeActivity">
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:text="Thiết lập mã PIN"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_set_up_pin_back"
+        app:layout_constraintStart_toEndOf="@+id/btn_set_up_pin_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_set_up_pin_back" />
+
+    <ImageView
+        android:id="@+id/btn_set_up_pin_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_left" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="64dp"
+        android:text="Vui lòng nhập mã PIN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37">
+
+        <EditText
+            android:id="@+id/inputPinCode1"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/inputPinCode2"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/inputPinCode3"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/inputPinCode4"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38">
+
+        <EditText
+            android:id="@+id/rePINCode1"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/rePINCode2"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/rePINCode3"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/rePINCode4"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="28dp"
+        android:text="Xác nhận lại mã PIN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_set_up_PIN"
+        android:background="@drawable/button_background"
+
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Thiết lập mã PIN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

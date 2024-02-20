@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.StudentInformation.ProfileActivity">
+
+    <View
+        android:id="@+id/view9"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView16" />
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Tên sinh viên"
+
+        app:layout_constraintStart_toStartOf="@+id/view9"
+        app:layout_constraintTop_toTopOf="@+id/view9" />
+
+    <TextView
+        android:id="@+id/tv_profile_activity_student_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Nguyễn Trung Kiên"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView51"
+        app:layout_constraintTop_toBottomOf="@+id/textView51" />
+
+    <View
+        android:id="@+id/view18"
+        android:layout_width="320dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintEnd_toEndOf="@+id/view9"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/view9"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_activity_student_name" />
+
+    <ImageView
+        android:id="@+id/btn_profile_activity_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_left" />
+
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:text="Hồ sơ"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_profile_activity_back"
+        app:layout_constraintStart_toEndOf="@+id/btn_profile_activity_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_profile_activity_back"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Số điện thoại"
+
+
+        app:layout_constraintStart_toStartOf="@+id/view9"
+        app:layout_constraintTop_toBottomOf="@+id/view18" />
+
+    <TextView
+        android:id="@+id/tv_profile_activity_student_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="0943494158"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView55"
+        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+    <View
+        android:id="@+id/view19"
+        android:layout_width="320dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/dark_gray"
+        app:flow_horizontalBias="0.493"
+        app:layout_constraintEnd_toEndOf="@+id/view18"
+        app:layout_constraintStart_toStartOf="@+id/view18"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_activity_student_phone" />
+
+    <TextView
+        android:id="@+id/textView57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Email"
+        app:layout_constraintStart_toStartOf="@+id/view9"
+        app:layout_constraintTop_toBottomOf="@+id/view19" />
+
+    <TextView
+        android:id="@+id/tv_profile_activity_student_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="kiennthe163628@fpt.edu.vn"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView57"
+        app:layout_constraintTop_toBottomOf="@+id/textView57" />
+
+    <View
+        android:id="@+id/view21"
+        android:layout_width="320dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/dark_gray"
+        app:layout_constraintEnd_toEndOf="@+id/view19"
+        app:layout_constraintStart_toStartOf="@+id/view19"
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_activity_student_email" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Xác minh thông tin"
+
+        app:layout_constraintStart_toStartOf="@+id/view9"
+        app:layout_constraintTop_toBottomOf="@+id/view21" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Đã xác minh"
+        android:textColor="#008000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView59"
+        app:layout_constraintTop_toBottomOf="@+id/textView59" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_profile_activity_change_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_background"
+        android:text="Chỉnh sửa thông tin cá nhân"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView53"
+        app:srcCompat="@drawable/logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

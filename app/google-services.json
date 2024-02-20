@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "467617521333",
+    "firebase_url": "https://e-wallet-fptu-default-rtdb.firebaseio.com",
+    "project_id": "e-wallet-fptu",
+    "storage_bucket": "e-wallet-fptu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467617521333:android:60d6777b8035a1d879a8fc",
+        "android_client_info": {
+          "package_name": "com.example.e_wallet_fptu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvHVW4L_cKjsN6bQSB8IDdZV9XQMir5QA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

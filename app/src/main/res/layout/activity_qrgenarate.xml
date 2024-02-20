@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Transaction.QR.QRGenerateActivity">
+
+    <View
+        android:id="@+id/btn_QR_generate_scan_QR"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toStartOf="@+id/img_QR"
+        app:layout_constraintTop_toBottomOf="@+id/img_QR" />
+
+    <ImageView
+        android:id="@+id/img_QR"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_qr_generate_back" />
+
+    <ImageView
+        android:id="@+id/btn_qr_generate_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView92"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:text="QR code"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/btn_qr_generate_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_qr_generate_back" />
+
+    <View
+        android:id="@+id/btn_QR_generate_my_QR"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/img_QR"
+        app:layout_constraintTop_toBottomOf="@+id/img_QR" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:tint="@color/main_orange"
+        app:layout_constraintEnd_toEndOf="@+id/btn_QR_generate_my_QR"
+        app:layout_constraintStart_toStartOf="@+id/btn_QR_generate_my_QR"
+        app:layout_constraintTop_toTopOf="@+id/btn_QR_generate_my_QR"
+        app:srcCompat="@drawable/ic_qr_code" />
+
+    <TextView
+        android:id="@+id/textView93"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Mã của tôi"
+        android:textColor="@color/main_orange"
+        app:layout_constraintEnd_toEndOf="@+id/imageView23"
+        app:layout_constraintStart_toStartOf="@+id/imageView23"
+        app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_qr_code_scan"
+        app:layout_constraintEnd_toEndOf="@+id/btn_QR_generate_scan_QR"
+        app:layout_constraintStart_toStartOf="@+id/btn_QR_generate_scan_QR"
+        app:layout_constraintTop_toTopOf="@+id/btn_QR_generate_scan_QR" />
+
+    <TextView
+        android:id="@+id/textView94"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Quét mã QR"
+        app:layout_constraintEnd_toEndOf="@+id/imageView24"
+        app:layout_constraintStart_toStartOf="@+id/imageView24"
+        app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+</androidx.constraintlayout.widget.ConstraintLayout>
