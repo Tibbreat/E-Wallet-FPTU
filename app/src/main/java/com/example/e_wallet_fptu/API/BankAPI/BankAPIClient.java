@@ -1,4 +1,4 @@
-package com.example.e_wallet_fptu.API;
+package com.example.e_wallet_fptu.API.BankAPI;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

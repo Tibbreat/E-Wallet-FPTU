@@ -1,4 +1,4 @@
-package com.example.e_wallet_fptu.API;
+package com.example.e_wallet_fptu.API.BankAPI;
 
 import com.example.e_wallet_fptu.Entity.Banks;
 import com.google.gson.annotations.SerializedName;

@@ -38,12 +38,12 @@ public class BankAdapter extends RecyclerView.Adapter<BankAdapter.viewholder> {
     @Override
     public void onBindViewHolder(@NonNull BankAdapter.viewholder holder, int position) {
         holder.tv_name.setText(banks.get(position).getName());
-        holder.tv_id.setText(String.valueOf(banks.get(position).getId()));
-
-        holder.tv_bin.setText(banks.get(position).getName());
-        Glide.with(context).load(banks.get(position).getLogo())
-                .transform(new CenterCrop(), new RoundedCorners(30))
+        Glide.with(context)
+                .load(banks.get(position).getLogo())
+                .override(60, 60) // Set the width and height to match the ImageView dimensions
+                .transform(new CenterCrop(), new RoundedCorners(5))
                 .into(holder.img_logo);
+
     }
 
     @Override
@@ -57,10 +57,8 @@ public class BankAdapter extends RecyclerView.Adapter<BankAdapter.viewholder> {
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
-            tv_name = itemView.findViewById(R.id.textView2);
-            tv_id = itemView.findViewById(R.id.textView3);
-            tv_bin = itemView.findViewById(R.id.textView5);
-            img_logo = itemView.findViewById(R.id.imageView);
+            tv_name = itemView.findViewById(R.id.bank_name);
+            img_logo = itemView.findViewById(R.id.bank_logo);
 
         }
     }

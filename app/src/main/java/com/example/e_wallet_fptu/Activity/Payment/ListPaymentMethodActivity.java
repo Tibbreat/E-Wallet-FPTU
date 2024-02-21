@@ -8,8 +8,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import com.example.e_wallet_fptu.API.BankAPIClient;
-import com.example.e_wallet_fptu.API.BankResponse;
+import com.example.e_wallet_fptu.API.BankAPI.BankAPIClient;
+import com.example.e_wallet_fptu.API.BankAPI.BankResponse;
 import com.example.e_wallet_fptu.Activity.Base.BaseActivity;
 import com.example.e_wallet_fptu.Adapter.BankAdapter;
 import com.example.e_wallet_fptu.Entity.Banks;
@@ -36,7 +36,7 @@ public class ListPaymentMethodActivity extends BaseActivity {
         banksList = new ArrayList<>();
         bankAdapter = new BankAdapter(this, banksList);
 
-        binding.rvBank.setLayoutManager(new GridLayoutManager(this, 4));
+        binding.rvBank.setLayoutManager(new GridLayoutManager(this, 3));
 
         binding.rvBank.setAdapter(bankAdapter);
 
