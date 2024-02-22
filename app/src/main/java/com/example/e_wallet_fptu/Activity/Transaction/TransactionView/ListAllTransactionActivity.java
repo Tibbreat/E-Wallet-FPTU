@@ -84,7 +84,8 @@ public class ListAllTransactionActivity extends BaseActivity {
         List<Transaction> filteredTransactions = new ArrayList<>();
         for (Transaction transaction : transactions) {
             if (transaction.getFrom().toLowerCase().contains(searchText.toLowerCase()) ||
-                    transaction.getTo().toLowerCase().contains(searchText.toLowerCase())) {
+                    transaction.getTo().toLowerCase().contains(searchText.toLowerCase()) ||
+                        transaction.getCategory().toLowerCase().contains(searchText.toLowerCase())) {
                 filteredTransactions.add(transaction);
             }
         }
