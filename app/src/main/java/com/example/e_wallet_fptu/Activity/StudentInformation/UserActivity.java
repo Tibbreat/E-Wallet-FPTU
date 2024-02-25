@@ -24,12 +24,9 @@ public class UserActivity extends BaseActivity {
 
     private void handleButton() {
         //Handle "Hồ sơ"
-        binding.btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserActivity.this, ProfileActivity.class));
-                finish();
-            }
+        binding.btnProfile.setOnClickListener(v -> {
+            startActivity(new Intent(UserActivity.this, ProfileActivity.class));
+            finish();
         });
 
         //Handle "Cài đặt"
@@ -39,20 +36,17 @@ public class UserActivity extends BaseActivity {
         });
 
         //Handle "Đăng xuất"
-        binding.btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Xóa thông tin người dùng đang đăng nhập trong preferences
-                SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.clear();
-                editor.apply();
-                //Chuyển đến màn hình đăng nhập
-                Intent intent = new Intent(UserActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
-            }
+        binding.btnLogout.setOnClickListener(v -> {
+            //Xóa thông tin người dùng đang đăng nhập trong preferences
+            SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
+            //Chuyển đến màn hình đăng nhập
+            Intent intent = new Intent(UserActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
         });
 
         binding.btnUserHome.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, MainActivity.class)));
