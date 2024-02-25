@@ -40,7 +40,7 @@ public class BankAdapter extends RecyclerView.Adapter<BankAdapter.viewholder> {
         holder.tv_name.setText(banks.get(position).getName());
         Glide.with(context)
                 .load(banks.get(position).getLogo())
-                .override(60, 60) // Set the width and height to match the ImageView dimensions
+                .override(50, 50) // Set the width and height to match the ImageView dimensions
                 .transform(new CenterCrop(), new RoundedCorners(5))
                 .into(holder.img_logo);
 
