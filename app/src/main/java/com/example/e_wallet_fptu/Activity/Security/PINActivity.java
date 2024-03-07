@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.e_wallet_fptu.Activity.Base.BaseActivity;
 import com.example.e_wallet_fptu.Activity.Transaction.TransactionStatus.TransactionResultActivity;
@@ -19,6 +20,7 @@ import com.example.e_wallet_fptu.databinding.ActivityPinactivityBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
@@ -29,17 +31,20 @@ public class PINActivity extends BaseActivity {
     ActivityPinactivityBinding binding;
     DataEncode dataEncode = new DataEncode();
     private ProgressDialog progressDialog;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityPinactivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
         setUpOTPInput();
         setConfirmButton();
-
-
     }
+
     private void setUpOTPInput() {
         binding.inputCode1.addTextChangedListener(new TextWatcher() {
             @Override
@@ -101,31 +106,33 @@ public class PINActivity extends BaseActivity {
     }
 
     private void setConfirmButton() {
-        binding.btnConfirmPIN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String PIN = binding.inputCode1.getText().toString().trim()
-                        + binding.inputCode2.getText().toString().trim()
-                        + binding.inputCode3.getText().toString().trim()
-                        + binding.inputCode4.getText().toString().trim();
+        binding.btnConfirmPIN.setOnClickListener(v -> {
+            String PIN = binding.inputCode1.getText().toString().trim()
+                    + binding.inputCode2.getText().toString().trim()
+                    + binding.inputCode3.getText().toString().trim()
+                    + binding.inputCode4.getText().toString().trim();
 
-                progressDialog = new ProgressDialog(PINActivity.this);
-                progressDialog.setMessage("Đang xử lý...");
-                progressDialog.setCancelable(false);
+            progressDialog = new ProgressDialog(PINActivity.this);
+            progressDialog.setMessage("Đang xử lý...");
+            progressDialog.setCancelable(false);
 
-                checkPIN(PIN);
-            }
+            new Thread(() -> checkAndPerformTransaction(PIN)).start();
         });
     }
 
-    private void checkPIN(String PIN) {
+    private void checkAndPerformTransaction(String PIN) {
+        runOnUiThread(() -> progressDialog.show());
+
         SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
         String studentPIN = preferences.getString("student_PIN", "");
         boolean isPinValid = dataEncode.verifyHash(PIN, studentPIN);
         if (isPinValid) {
             performTransaction();
         } else {
-            Toast.makeText(this, "Mã PIN không đúng", Toast.LENGTH_SHORT).show();
+            runOnUiThread(() -> {
+                progressDialog.dismiss();
+                Toast.makeText(PINActivity.this, "Mã PIN không đúng", Toast.LENGTH_SHORT).show();
+            });
         }
     }
 
@@ -137,10 +144,16 @@ public class PINActivity extends BaseActivity {
 
         switch (transactionType) {
             case 1:
-                performTopUp(amount, currentTime);
+                new Thread(() -> {
+                    String transactionKey = topUp(amount, currentTime);
+                    navigateToTransactionResult(transactionKey, amount, currentTime);
+                }).start();
                 break;
             case 2:
-                performTransfer(amount, currentTime);
+                new Thread(() -> {
+                    String transactionKey = transfer(amount, currentTime);
+                    navigateToTransactionResult(transactionKey, amount, currentTime);
+                }).start();
                 break;
         }
     }
@@ -149,12 +162,9 @@ public class PINActivity extends BaseActivity {
         SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
         String to = preferences.getString("student_roll_number", "");
         String from = "TP Bank";
-
-
         String category = "Nạp tiền vào ví";
 
-        //  Update balance
-        DatabaseReference reference = database.getReference("Student");
+        DatabaseReference reference = databaseReference.child("Student");
         Query query = reference.orderByChild("student_roll_number")
                 .equalTo(preferences.getString("student_roll_number", ""));
 
@@ -163,25 +173,19 @@ public class PINActivity extends BaseActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     DataSnapshot studentSnapshot = snapshot.getChildren().iterator().next();
-                    // Use Long.parseLong for handling Long values
                     long currentAmount = studentSnapshot.child("student_amount").getValue(Long.class);
-                    // Update the amount
                     studentSnapshot.getRef().child("student_amount")
-                            .setValue(currentAmount + Long.parseLong(String.valueOf(amount_top_up)));
-
+                            .setValue(currentAmount + amount_top_up);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Handle onCancelled event
             }
         });
 
-
-        // Save data transaction into DB
-        String student_roll_number = (preferences.getString("student_roll_number", ""));
-        DatabaseReference transactionRef = database.getReference("Transaction").child(student_roll_number);
+        String student_roll_number = preferences.getString("student_roll_number", "");
+        DatabaseReference transactionRef = databaseReference.child("Transaction").child(student_roll_number);
         DatabaseReference newTransaction = transactionRef.push();
         List<Transaction> transactions = loadTransaction(transactionRef);
         String newTransactionKey = newTransaction.getKey();
@@ -193,16 +197,14 @@ public class PINActivity extends BaseActivity {
 
         progressDialog.dismiss();
         return newTransactionKey;
-
     }
 
     private String transfer(int transfer_amount, String currentTime) {
-
         SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
         String from = preferences.getString("student_roll_number", "");
         String to = getIntent().getStringExtra("transfer_to");
-        //Update the balance of the sent student
-        DatabaseReference reference = database.getReference("Student");
+
+        DatabaseReference reference = databaseReference.child("Student");
         Query query_1 = reference.orderByChild("student_roll_number")
                 .equalTo(preferences.getString("student_roll_number", ""));
 
@@ -211,11 +213,9 @@ public class PINActivity extends BaseActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     DataSnapshot studentSnapshot = snapshot.getChildren().iterator().next();
-                    // Use Long.parseLong for handling Long values
                     long currentAmount = studentSnapshot.child("student_amount").getValue(Long.class);
-                    // Update the amount
                     studentSnapshot.getRef().child("student_amount")
-                            .setValue(currentAmount - Long.parseLong(String.valueOf(transfer_amount)));
+                            .setValue(currentAmount - transfer_amount);
                 }
             }
 
@@ -223,9 +223,9 @@ public class PINActivity extends BaseActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        // Save data transaction into DB
-        String student_roll_number = (preferences.getString("student_roll_number", ""));
-        DatabaseReference transactionRef = database.getReference("Transaction").child(student_roll_number);
+
+        String student_roll_number = preferences.getString("student_roll_number", "");
+        DatabaseReference transactionRef = databaseReference.child("Transaction").child(student_roll_number);
         DatabaseReference newTransaction = transactionRef.push();
         List<Transaction> transactions = loadTransaction(transactionRef);
         String newTransactionKey = newTransaction.getKey();
@@ -235,8 +235,6 @@ public class PINActivity extends BaseActivity {
             newTransaction.setValue(new Transaction(newTransactionKey, from, to, "Chuyển tiền đến ví khác", transfer_amount, currentTime, "0"));
         }
 
-
-        //Update the balance of the received student
         Query query_2 = reference.orderByChild("student_roll_number")
                 .equalTo(to);
 
@@ -245,11 +243,9 @@ public class PINActivity extends BaseActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     DataSnapshot studentSnapshot = snapshot.getChildren().iterator().next();
-                    // Use Long.parseLong for handling Long values
                     long currentAmount = studentSnapshot.child("student_amount").getValue(Long.class);
-                    // Update the amount
                     studentSnapshot.getRef().child("student_amount")
-                            .setValue(currentAmount + Long.parseLong(String.valueOf(transfer_amount)));
+                            .setValue(currentAmount + transfer_amount);
                 }
             }
 
@@ -257,8 +253,8 @@ public class PINActivity extends BaseActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        // Save data transaction into DB
-        DatabaseReference transactionRef_2 = database.getReference("Transaction").child(to);
+
+        DatabaseReference transactionRef_2 = databaseReference.child("Transaction").child(to);
         DatabaseReference newTransaction_2 = transactionRef_2.push();
         List<Transaction> transactions_2 = loadTransaction(transactionRef);
         if (transactions.size() > 0) {
@@ -266,18 +262,9 @@ public class PINActivity extends BaseActivity {
         } else {
             newTransaction_2.setValue(new Transaction(newTransaction_2.getKey(), from, to, "Nhận tiền từ ví khác", transfer_amount, currentTime, "0"));
         }
+
         progressDialog.dismiss();
         return newTransactionKey;
-    }
-
-    private void performTopUp(int amount, String currentTime) {
-        String transactionKey = topUp(amount, currentTime);
-        navigateToTransactionResult(transactionKey, amount, currentTime);
-    }
-
-    private void performTransfer(int amount, String currentTime) {
-        String transactionKey = transfer(amount, currentTime);
-        navigateToTransactionResult(transactionKey, amount, currentTime);
     }
 
     private List<Transaction> loadTransaction(DatabaseReference transactionRef) {
@@ -309,5 +296,4 @@ public class PINActivity extends BaseActivity {
         startActivity(resultIntent);
         finishAffinity();
     }
-
 }

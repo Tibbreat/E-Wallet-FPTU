@@ -1,14 +1,14 @@
 package com.example.e_wallet_fptu.Entity;
 
 public class Fee {
-    private int additional_dormitory_fee;
-    private int dormitory_fee;
-    private int library_fines;
-    private int re_study_fee;
-    private int scholarship_penalty_fee;
-    private int semester_fee;
+    private long additional_dormitory_fee;
+    private long dormitory_fee;
+    private long library_fines;
+    private long re_study_fee;
+    private long scholarship_penalty_fee;
+    private long semester_fee;
 
-    public Fee(int additionalDormitoryFee, int dormitoryFee, int libraryFines, int reStudyFee, int scholarshipPenaltyFee, int semesterFee) {
+    public Fee(long additionalDormitoryFee, long dormitoryFee, long libraryFines, long reStudyFee, long scholarshipPenaltyFee, long semesterFee) {
         additional_dormitory_fee = additionalDormitoryFee;
         dormitory_fee = dormitoryFee;
         library_fines = libraryFines;
@@ -20,27 +20,27 @@ public class Fee {
     public Fee() {
     }
 
-    public int getAdditional_dormitory_fee() {
+    public long getAdditional_dormitory_fee() {
         return additional_dormitory_fee;
     }
 
-    public int getDormitory_fee() {
+    public long getDormitory_fee() {
         return dormitory_fee;
     }
 
-    public int getLibrary_fines() {
+    public long getLibrary_fines() {
         return library_fines;
     }
 
-    public int getRe_study_fee() {
+    public long getRe_study_fee() {
         return re_study_fee;
     }
 
-    public int getScholarship_penalty_fee() {
+    public long getScholarship_penalty_fee() {
         return scholarship_penalty_fee;
     }
 
-    public int getSemester_fee() {
+    public long getSemester_fee() {
         return semester_fee;
     }
 }
