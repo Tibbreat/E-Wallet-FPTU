@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.e_wallet_fptu.Activity.Base.BaseActivity;
 import com.example.e_wallet_fptu.Activity.Authentication.LoginActivity;
@@ -14,12 +15,17 @@ import com.example.e_wallet_fptu.databinding.ActivityUserBinding;
 public class UserActivity extends BaseActivity {
     ActivityUserBinding binding;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         handleButton();
+        SharedPreferences student = getSharedPreferences("currentStudent", MODE_PRIVATE);
+        binding.tvFullName.setText(student.getString("student_name",""));
     }
 
     private void handleButton() {

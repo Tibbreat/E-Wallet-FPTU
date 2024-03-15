@@ -59,10 +59,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_marginStart="52dp"
-        app:hintEnabled="true"
+        android:layout_marginTop="32dp"
         android:textAlignment="center"
+        app:hintEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
@@ -73,7 +73,7 @@
             android:background="@drawable/edittext_background"
             android:hint="Mã số sinh viên"
             android:inputType="text"
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
