@@ -1,6 +1,6 @@
 package com.example.e_wallet_fptu.Entity;
 
-public class Bank {
+public class Banks {
     private int id;
     private String name;
     private String code;
@@ -11,10 +11,10 @@ public class Bank {
     private int lookupSupported;
     private String swiftCode;
 
-    public Bank() {
+    public Banks() {
     }
 
-    public Bank(int id, String name, String code, String bin, String shortName, String logo, int transferSupported, int lookupSupported, String swiftCode) {
+    public Banks(int id, String name, String code, String bin, String shortName, String logo, int transferSupported, int lookupSupported, String swiftCode) {
         this.id = id;
         this.name = name;
         this.code = code;

@@ -55,13 +55,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             holder.transaction_amount_txt.setText(String.format("- %s", dataEncode.formatMoney(transaction.getAmount())));
             holder.transaction_amount_txt.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.red));
         }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, TransactionDetailActivity.class);
-                intent.putExtra("object", list.get(position));
-                context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, TransactionDetailActivity.class);
+            intent.putExtra("object", list.get(position));
+            context.startActivity(intent);
         });
     }
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.e_wallet_fptu.Activity.Base.BaseActivity;
 import com.example.e_wallet_fptu.Activity.Base.MainActivity;
 import com.example.e_wallet_fptu.Activity.Base.PINIntroActivity;
+import com.example.e_wallet_fptu.Activity.Payment.ListPaymentMethodActivity;
 import com.example.e_wallet_fptu.Activity.Security.PINActivity;
 import com.example.e_wallet_fptu.Activity.Security.SetUpPINCodeActivity;
 import com.example.e_wallet_fptu.R;
@@ -65,7 +66,7 @@ public class TopUpActivity extends BaseActivity {
         });
 
         binding.btnPaymentMethod.setOnClickListener(v -> {
-            // Handle btn_payment_method click
+           startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class));
         });
     }
 

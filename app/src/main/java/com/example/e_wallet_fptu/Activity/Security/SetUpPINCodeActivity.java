@@ -81,7 +81,9 @@ public class SetUpPINCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (s.toString().isEmpty()) {
+                    binding.inputPinCode1.requestFocus();
+                }
             }
         });
 
@@ -101,7 +103,9 @@ public class SetUpPINCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (s.toString().trim().isEmpty()) {
+                    binding.inputPinCode2.requestFocus();
+                }
             }
         });
 
@@ -113,12 +117,17 @@ public class SetUpPINCodeActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.toString().trim().isEmpty()) {
+                    binding.rePINCode1.requestFocus();
+                }
                 enableButtonIfMatch();
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (s.toString().isEmpty()) {
+                    binding.inputPinCode3.requestFocus();
+                }
             }
         });
     }
@@ -140,7 +149,9 @@ public class SetUpPINCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (s.toString().isEmpty()) {
+                    binding.inputPinCode4.requestFocus();
+                }
             }
         });
 
@@ -160,7 +171,9 @@ public class SetUpPINCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (s.toString().isEmpty()) {
+                    binding.rePINCode1.requestFocus();
+                }
             }
         });
 
@@ -180,7 +193,9 @@ public class SetUpPINCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (s.toString().isEmpty()) {
+                    binding.rePINCode2.requestFocus();
+                }
             }
         });
 
@@ -197,7 +212,9 @@ public class SetUpPINCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (s.toString().isEmpty()) {
+                    binding.rePINCode3.requestFocus();
+                }
             }
         });
     }
