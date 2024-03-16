@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.e_wallet_fptu.Activity.Authentication.ChangePasswordActivity;
 import com.example.e_wallet_fptu.Activity.Base.BaseActivity;
 import com.example.e_wallet_fptu.Activity.Authentication.SetupPasswordActivity;
 import com.example.e_wallet_fptu.Activity.StudentInformation.UserActivity;
@@ -37,11 +38,14 @@ public class EnterCodeActivity extends BaseActivity {
             String code_enter_by_user = binding.edtVerifyCode.getText().toString().trim();
             if (code_enter_by_user.equalsIgnoreCase(code_verify)) {
                 getIntent().removeExtra("code");
+                String email = getIntent().getStringExtra("email");
                 String type = getIntent().getStringExtra("type");
                 if (type != null) {
                     switch (type) {
                         case "forgot password":
-                            startActivity(new Intent(EnterCodeActivity.this, SetupPasswordActivity.class));
+                            Intent i = new Intent(EnterCodeActivity.this, ChangePasswordActivity.class);
+                            i.putExtra("email", email);
+                            startActivity(i);
                             finish();
                             break;
                         case "update profile":

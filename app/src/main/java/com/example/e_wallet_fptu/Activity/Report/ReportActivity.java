@@ -69,9 +69,8 @@ public class ReportActivity extends BaseActivity {
                             // Lưu dữ liệu thành công
                             // Hiển thị dialog thông báo
                             showDialogAndNavigateToMainActivity();
-                        } else {
-                            // Xử lý khi lưu dữ liệu không thành công (nếu cần)
-                        }
+                        }  // Xử lý khi lưu dữ liệu không thành công (nếu cần)
+
                     });
         });
     }

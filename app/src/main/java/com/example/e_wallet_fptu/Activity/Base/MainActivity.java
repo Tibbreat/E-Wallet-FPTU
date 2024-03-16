@@ -3,7 +3,6 @@ package com.example.e_wallet_fptu.Activity.Base;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -12,14 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.e_wallet_fptu.Activity.Authentication.LoginActivity;
 import com.example.e_wallet_fptu.Activity.Report.ReportActivity;
 import com.example.e_wallet_fptu.Activity.StudentInformation.UserActivity;
-import com.example.e_wallet_fptu.Activity.Transaction.QR.QRGenerateActivity;
-import com.example.e_wallet_fptu.Activity.Transaction.TransactionView.ListAllTransactionActivity;
 import com.example.e_wallet_fptu.Activity.Transaction.Paying.PayingActivity;
+import com.example.e_wallet_fptu.Activity.Transaction.QR.QRGenerateActivity;
 import com.example.e_wallet_fptu.Activity.Transaction.TopUpActivity;
+import com.example.e_wallet_fptu.Activity.Transaction.TransactionView.ListAllTransactionActivity;
 import com.example.e_wallet_fptu.Activity.Transaction.TransferActivity;
 import com.example.e_wallet_fptu.Adapter.TransactionAdapter;
 import com.example.e_wallet_fptu.Entity.Transaction;
-import com.example.e_wallet_fptu.Helper.DataEncode;
 import com.example.e_wallet_fptu.databinding.ActivityMainBinding;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -63,7 +61,7 @@ public class MainActivity extends BaseActivity {
         DatabaseReference reference = database.getReference("Student");
         Query query = reference.orderByChild("student_roll_number")
                 .equalTo(currentStudentRollNumber);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
