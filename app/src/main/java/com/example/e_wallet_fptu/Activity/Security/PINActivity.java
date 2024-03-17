@@ -149,6 +149,7 @@ public class PINActivity extends BaseActivity {
                     String transactionKey = transfer(amount, currentTime);
                     navigateToTransactionResult(transactionKey, amount, currentTime);
                 }).start();
+                break;
             case 3:
                 new Thread(() -> {
                     String transactionKey = paying(amount, currentTime, "Thanh toán học phí");
@@ -305,7 +306,6 @@ public class PINActivity extends BaseActivity {
         } else {
             newTransaction.setValue(new Transaction(newTransactionKey, student_roll_number, "Đại học FPT", category, transaction_amount, currentTime, "0"));
         }
-
         progressDialog.dismiss();
         return newTransactionKey;
     }
