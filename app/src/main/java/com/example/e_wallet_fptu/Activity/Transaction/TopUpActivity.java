@@ -54,7 +54,7 @@ public class TopUpActivity extends BaseActivity {
                     } else {
                         binding.textView100.setVisibility(View.GONE);
                     }
-                }else {
+                } else {
                     binding.textView100.setVisibility(View.GONE);
                 }
                 binding.btnPay.setEnabled(!amountString.isEmpty());
@@ -65,7 +65,6 @@ public class TopUpActivity extends BaseActivity {
             }
         });
 
-
         binding.btnPay.setOnClickListener(v -> {
             SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
             String studentPIN = preferences.getString("student_PIN", "");
@@ -73,7 +72,7 @@ public class TopUpActivity extends BaseActivity {
                 startActivity(new Intent(TopUpActivity.this, PINIntroActivity.class));
             } else {
                 int amount_top_up = Integer.parseInt(binding.edtAmount.getText().toString().trim());
-                if (amount_top_up <= 50000000) { // Sửa thành <= để bao gồm trường hợp số tiền top-up là 50 triệu VNĐ
+                if (amount_top_up <= 50000000) {
                     Intent intent = new Intent(TopUpActivity.this, PINActivity.class);
                     intent.putExtra("transaction_amount", amount_top_up);
                     intent.putExtra("transaction_type", 1); // type 1: Nạp tiền vào ví
@@ -87,7 +86,6 @@ public class TopUpActivity extends BaseActivity {
         binding.btnPaymentMethod.setOnClickListener(v -> {
             startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class));
         });
-
     }
 
     private void selectAmount() {

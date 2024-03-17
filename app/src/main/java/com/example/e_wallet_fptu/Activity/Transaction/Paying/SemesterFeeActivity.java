@@ -1,10 +1,13 @@
 package com.example.e_wallet_fptu.Activity.Transaction.Paying;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.e_wallet_fptu.Activity.Base.BaseActivity;
+import com.example.e_wallet_fptu.Activity.Security.PINActivity;
+import com.example.e_wallet_fptu.Activity.Transaction.TopUpActivity;
 import com.example.e_wallet_fptu.databinding.ActivitySemesterFeeBinding;
 
 public class SemesterFeeActivity extends BaseActivity {
@@ -16,17 +19,6 @@ public class SemesterFeeActivity extends BaseActivity {
         binding = ActivitySemesterFeeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setVariable();
-        handleButton();
-    }
-
-    private void handleButton() {
-        binding.btnBackToFee.setOnClickListener(v -> finish());
-        binding.btnPayFee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
     private void setVariable() {
@@ -38,6 +30,15 @@ public class SemesterFeeActivity extends BaseActivity {
                 binding.tvFeeAmount.setText(dataEncode.formatMoney(pre.getInt("semester_fee", 0)));
                 binding.tvFee.setText("Học phí");
                 binding.tvContentFee.setText(pre.getString("student_roll_number", "") + " thanh toán học phí.");
+                binding.btnPayFee.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SemesterFeeActivity.this, PINActivity.class);
+                        intent.putExtra("transaction_amount", pre.getInt("semester_fee", 0));
+                        intent.putExtra("transaction_type", 3); // type 2: Thanh toán học phí
+                        startActivity(intent);
+                    }
+                });
                 break;
             case "additional_dormitory_fee":
                 binding.tvFeeTitle.setText("Đăng ký ký túc xá");

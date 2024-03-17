@@ -36,9 +36,7 @@ public class PINActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPinactivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         setUpOTPInput();
         setConfirmButton();
     }
@@ -138,21 +136,26 @@ public class PINActivity extends BaseActivity {
         Intent intent = getIntent();
         int transactionType = intent.getIntExtra("transaction_type", 0);
         int amount = intent.getIntExtra("transaction_amount", 0);
-            String currentTime = dataEncode.getCurrentTime();
-            switch (transactionType) {
-                case 1:
-                    new Thread(() -> {
-                        String transactionKey = topUp(amount, currentTime);
-                        navigateToTransactionResult(transactionKey, amount, currentTime);
-                    }).start();
-                    break;
-                case 2:
-                    new Thread(() -> {
-                        String transactionKey = transfer(amount, currentTime);
-                        navigateToTransactionResult(transactionKey, amount, currentTime);
-                    }).start();
-                    break;
-            }
+        String currentTime = dataEncode.getCurrentTime();
+        switch (transactionType) {
+            case 1:
+                new Thread(() -> {
+                    String transactionKey = topUp(amount, currentTime);
+                    navigateToTransactionResult(transactionKey, amount, currentTime);
+                }).start();
+                break;
+            case 2:
+                new Thread(() -> {
+                    String transactionKey = transfer(amount, currentTime);
+                    navigateToTransactionResult(transactionKey, amount, currentTime);
+                }).start();
+            case 3:
+                new Thread(() -> {
+                    String transactionKey = paying(amount, currentTime, "Thanh toán học phí");
+                    navigateToTransactionResult(transactionKey, amount, currentTime);
+                }).start();
+                break;
+        }
     }
 
     private String topUp(int amount_top_up, String currentTime) {
@@ -258,6 +261,49 @@ public class PINActivity extends BaseActivity {
             newTransaction_2.setValue(new Transaction(newTransaction_2.getKey(), from, to, "Nhận tiền từ ví khác", transfer_amount, currentTime, transactions_2.get(transactions.size() - 1).getHash()));
         } else {
             newTransaction_2.setValue(new Transaction(newTransaction_2.getKey(), from, to, "Nhận tiền từ ví khác", transfer_amount, currentTime, "0"));
+        }
+
+        progressDialog.dismiss();
+        return newTransactionKey;
+    }
+
+    private String paying(int transaction_amount, String currentTime, String category) {
+        SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
+        String student_roll_number = preferences.getString("student_roll_number", "");
+
+        // Update student_amount in Firebase
+        DatabaseReference reference = databaseReference.child("Student").child(student_roll_number);
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    long currentAmount = snapshot.child("student_amount").getValue(Long.class);
+                    snapshot.getRef().child("student_amount").setValue(currentAmount - transaction_amount);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        // Update semester_fee in Firebase
+        DatabaseReference feeRef = databaseReference.child("Fee").child(student_roll_number).child("semester_fee");
+        feeRef.setValue(0);
+
+        // Update semester_fee in SharedPreferences
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putLong("semester_fee", 0);
+        editor.apply();
+
+        // Perform the transaction
+        DatabaseReference transactionRef = databaseReference.child("Transaction").child(student_roll_number);
+        DatabaseReference newTransaction = transactionRef.push();
+        List<Transaction> transactions = loadTransaction(transactionRef);
+        String newTransactionKey = newTransaction.getKey();
+        if (transactions.size() > 0) {
+            newTransaction.setValue(new Transaction(newTransactionKey, student_roll_number, "Đại học FPT", category, transaction_amount, currentTime, transactions.get(transactions.size() - 1).getHash()));
+        } else {
+            newTransaction.setValue(new Transaction(newTransactionKey, student_roll_number, "Đại học FPT", category, transaction_amount, currentTime, "0"));
         }
 
         progressDialog.dismiss();
