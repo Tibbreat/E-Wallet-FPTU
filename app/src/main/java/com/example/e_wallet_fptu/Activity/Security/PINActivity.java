@@ -6,11 +6,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.e_wallet_fptu.Activity.Base.BaseActivity;
 import com.example.e_wallet_fptu.Activity.Transaction.TransactionStatus.TransactionResultActivity;
@@ -140,22 +138,21 @@ public class PINActivity extends BaseActivity {
         Intent intent = getIntent();
         int transactionType = intent.getIntExtra("transaction_type", 0);
         int amount = intent.getIntExtra("transaction_amount", 0);
-        String currentTime = dataEncode.getCurrentTime();
-
-        switch (transactionType) {
-            case 1:
-                new Thread(() -> {
-                    String transactionKey = topUp(amount, currentTime);
-                    navigateToTransactionResult(transactionKey, amount, currentTime);
-                }).start();
-                break;
-            case 2:
-                new Thread(() -> {
-                    String transactionKey = transfer(amount, currentTime);
-                    navigateToTransactionResult(transactionKey, amount, currentTime);
-                }).start();
-                break;
-        }
+            String currentTime = dataEncode.getCurrentTime();
+            switch (transactionType) {
+                case 1:
+                    new Thread(() -> {
+                        String transactionKey = topUp(amount, currentTime);
+                        navigateToTransactionResult(transactionKey, amount, currentTime);
+                    }).start();
+                    break;
+                case 2:
+                    new Thread(() -> {
+                        String transactionKey = transfer(amount, currentTime);
+                        navigateToTransactionResult(transactionKey, amount, currentTime);
+                    }).start();
+                    break;
+            }
     }
 
     private String topUp(int amount_top_up, String currentTime) {

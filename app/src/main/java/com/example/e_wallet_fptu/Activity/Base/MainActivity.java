@@ -26,7 +26,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
@@ -80,28 +85,13 @@ public class MainActivity extends BaseActivity {
     }
 
     private void handleButton() {
-        binding.btnTopUp.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, TopUpActivity.class));
-            finish();
-        });
-
-        binding.btnUser.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, UserActivity.class));
-            finish();
-        });
-
-        binding.btnTransfer.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, TransferActivity.class));
-            finish();
-        });
-        binding.btnReport.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ReportActivity.class));
-            finish();
-        });
+        binding.btnTopUp.setOnClickListener(v -> {startActivity(new Intent(MainActivity.this, TopUpActivity.class));});
+        binding.btnUser.setOnClickListener(v -> {startActivity(new Intent(MainActivity.this, UserActivity.class));});
+        binding.btnTransfer.setOnClickListener(v -> {startActivity(new Intent(MainActivity.this, TransferActivity.class));});
+        binding.btnReport.setOnClickListener(v -> {startActivity(new Intent(MainActivity.this, ReportActivity.class));});
         binding.btnMainToTransactionHistory.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ListAllTransactionActivity.class)));
         binding.btnQrInMain.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, QRGenerateActivity.class)));
         binding.btnPaying.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PayingActivity.class)));
-
     }
 
     private void initRecyclerView() {
@@ -117,6 +107,21 @@ public class MainActivity extends BaseActivity {
                 Transaction transaction = snapshot.getValue(Transaction.class);
                 if (transaction != null) {
                     transactions.add(0, transaction);
+
+                    // Sắp xếp lại danh sách giao dịch theo thời gian
+                    Collections.sort(transactions, (t1, t2) -> {
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                        try {
+                            Date date1 = sdf.parse(t1.getTime());
+                            Date date2 = sdf.parse(t2.getTime());
+                            // Sắp xếp theo thứ tự giảm dần của thời gian
+                            return date2.compareTo(date1);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        return 0;
+                    });
+
                     if (transactions.size() > 10) {
                         transactions.remove(transactions.size() - 1);
                     }
@@ -142,7 +147,6 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-
 
 
 }

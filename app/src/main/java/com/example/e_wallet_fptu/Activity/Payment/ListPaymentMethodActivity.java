@@ -42,6 +42,7 @@ public class ListPaymentMethodActivity extends BaseActivity {
 
         // Lấy danh sách ngân hàng từ API
         fetchBankList();
+        handleButton();
     }
 
     private void fetchBankList() {
@@ -67,5 +68,8 @@ public class ListPaymentMethodActivity extends BaseActivity {
                 Toast.makeText(ListPaymentMethodActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void handleButton(){
+        binding.btnListPaymentBack.setOnClickListener(v -> finish());
     }
 }
