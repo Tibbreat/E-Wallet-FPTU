@@ -91,7 +91,7 @@ public class ForgotPasswordActivity extends BaseActivity {
                         String verificationCode = new DataEncode().generateRandomCode();
 
                         new SendMailTask().execute(email, "Xác minh là sinh viên đang đổi mật khẩu ví",
-                                "Mã xác minh quên mật khẩu FPTU Wallet của bạn là: " + verificationCode);
+                                        "Mã xác minh quên mật khẩu FPTU Wallet của bạn là: " + verificationCode);
 
                         Intent intent_1 = new Intent(ForgotPasswordActivity.this, EnterCodeActivity.class);
                         intent_1.putExtra("email", email);
