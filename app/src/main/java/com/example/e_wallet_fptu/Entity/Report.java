@@ -17,6 +17,9 @@ public class Report {
         this.report_status = report_status;
     }
 
+    public Report() {
+    }
+
     public String getReport_category() {
         return report_category;
     }

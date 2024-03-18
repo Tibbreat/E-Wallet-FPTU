@@ -273,13 +273,17 @@ public class PINActivity extends BaseActivity {
         String student_roll_number = preferences.getString("student_roll_number", "");
 
         // Update student_amount in Firebase
-        DatabaseReference reference = databaseReference.child("Student").child(student_roll_number);
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference reference = databaseReference.child("Student");
+        Query query = reference.orderByChild("student_roll_number")
+                .equalTo(preferences.getString("student_roll_number", ""));
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    long currentAmount = snapshot.child("student_amount").getValue(Long.class);
-                    snapshot.getRef().child("student_amount").setValue(currentAmount - transaction_amount);
+                    DataSnapshot studentSnapshot = snapshot.getChildren().iterator().next();
+                    long currentAmount = studentSnapshot.child("student_amount").getValue(Long.class);
+                    studentSnapshot.getRef().child("student_amount")
+                            .setValue(currentAmount - transaction_amount);
                 }
             }
 

@@ -53,7 +53,7 @@ public class SemesterFeeActivity extends BaseActivity {
                                         } else {
                                             Intent intent = new Intent(SemesterFeeActivity.this, PINActivity.class);
                                             intent.putExtra("transaction_amount", pre.getInt("semester_fee", 0));
-                                            intent.putExtra("transaction_type", 2); // type 2: Thanh toán học phí
+                                            intent.putExtra("transaction_type", 3); // type 2: Thanh toán học phí
                                             startActivity(intent);
                                         }
                                     });

@@ -73,6 +73,12 @@ public class ReportActivity extends BaseActivity {
 
                     });
         });
+        binding.textView99.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ReportActivity.this, ReportListActivity.class));
+            }
+        });
     }
 
     private void showDialogAndNavigateToMainActivity() {
