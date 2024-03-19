@@ -9,13 +9,10 @@ import com.example.e_wallet_fptu.databinding.ActivityQrscanBinding;
 public class QRScanActivity extends AppCompatActivity {
     private ActivityQrscanBinding binding;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityQrscanBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
     }
 }

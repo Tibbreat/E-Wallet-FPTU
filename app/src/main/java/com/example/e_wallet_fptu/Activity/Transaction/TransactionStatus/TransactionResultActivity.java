@@ -1,10 +1,9 @@
 package com.example.e_wallet_fptu.Activity.Transaction.TransactionStatus;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.e_wallet_fptu.Activity.Base.MainActivity;
 import com.example.e_wallet_fptu.databinding.ActivityTransactionResultBinding;
@@ -27,14 +26,11 @@ public class TransactionResultActivity extends AppCompatActivity {
 
     private void handleButton() {
 
-        binding.btnCfTransactionResult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TransactionResultActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-            }
+        binding.btnCfTransactionResult.setOnClickListener(v -> {
+            Intent intent = new Intent(TransactionResultActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
         });
     }
 }
