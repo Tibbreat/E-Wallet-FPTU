@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.e_wallet_fptu.Activity.Payment.ListPaymentMethodActivity;
 import com.example.e_wallet_fptu.Activity.Security.SetUpPINCodeActivity;
 import com.example.e_wallet_fptu.databinding.ActivitySettingBinding;
 
@@ -25,7 +26,7 @@ public class SettingActivity extends AppCompatActivity {
         binding.btnToChangePayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(SettingActivity.this, ListPaymentMethodActivity.class));
             }
         });
 

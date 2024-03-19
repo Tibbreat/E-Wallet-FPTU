@@ -42,9 +42,7 @@ public class ListPaymentMethodActivity extends BaseActivity {
 
         // Lấy danh sách ngân hàng từ API
         fetchBankList();
-
-        //Back
-        binding.btnListPaymentBack.setOnClickListener(v -> finish());
+        handleButton();
     }
 
     private void fetchBankList() {
@@ -71,5 +69,7 @@ public class ListPaymentMethodActivity extends BaseActivity {
             }
         });
     }
-
+    private void handleButton(){
+        binding.btnListPaymentBack.setOnClickListener(v -> finish());
+    }
 }

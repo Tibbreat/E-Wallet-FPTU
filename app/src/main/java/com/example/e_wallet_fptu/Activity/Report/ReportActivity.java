@@ -69,10 +69,15 @@ public class ReportActivity extends BaseActivity {
                             // Lưu dữ liệu thành công
                             // Hiển thị dialog thông báo
                             showDialogAndNavigateToMainActivity();
-                        } else {
-                            // Xử lý khi lưu dữ liệu không thành công (nếu cần)
-                        }
+                        }  // Xử lý khi lưu dữ liệu không thành công (nếu cần)
+
                     });
+        });
+        binding.textView99.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ReportActivity.this, ReportListActivity.class));
+            }
         });
     }
 

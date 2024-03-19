@@ -82,44 +82,41 @@ public class SetupPasswordActivity extends BaseActivity {
             }
         });
 
-        binding.btnChangePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isCondition1Valid && isCondition2Valid && !isPasswordChanged) {
-                    DatabaseReference reference = database.getReference("Student");
-                    Query query = reference.orderByChild("student_roll_number")
-                            .equalTo(preferences
-                                    .getString("student_roll_number", ""));
+        binding.btnChangePassword.setOnClickListener(v -> {
+            if (isCondition1Valid && isCondition2Valid && !isPasswordChanged) {
+                DatabaseReference reference = database.getReference("Student");
+                Query query = reference.orderByChild("student_roll_number")
+                        .equalTo(preferences
+                                .getString("student_roll_number", ""));
 
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists()) {
-                                DataSnapshot studentSnapshot = snapshot.getChildren().iterator().next();
-                                studentSnapshot.getRef().child("student_password").setValue(dataEncode.hashData(binding.edtNewPassword.getText().toString().trim()));
-                                studentSnapshot.getRef().child("status").setValue(true);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            DataSnapshot studentSnapshot = snapshot.getChildren().iterator().next();
+                            studentSnapshot.getRef().child("student_password").setValue(dataEncode.hashData(binding.edtNewPassword.getText().toString().trim()));
+                            studentSnapshot.getRef().child("status").setValue(true);
 
-                                Toast.makeText(SetupPasswordActivity.this, "Đổi mật khẩu thành công, vui lòng đăng nhập lại", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SetupPasswordActivity.this, "Đổi mật khẩu thành công, vui lòng đăng nhập lại", Toast.LENGTH_SHORT).show();
 
-                                SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = preferences.edit();
-                                editor.clear(); // Xóa tất cả các giá trị
-                                editor.apply();
+                            SharedPreferences preferences1 = getSharedPreferences("currentStudent", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferences1.edit();
+                            editor.clear(); // Xóa tất cả các giá trị
+                            editor.apply();
 
-                                isPasswordChanged = true;
-                                updateButtonState();
-                                Intent intent = new Intent(SetupPasswordActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
+                            isPasswordChanged = true;
+                            updateButtonState();
+                            Intent intent = new Intent(SetupPasswordActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
+                    }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
-                }
+                    }
+                });
             }
         });
     }

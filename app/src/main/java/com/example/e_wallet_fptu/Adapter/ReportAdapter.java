@@ -33,7 +33,14 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.viewholder
     @Override
     public void onBindViewHolder(@NonNull ReportAdapter.viewholder holder, int position) {
         Report report = reportList.get(position);
-        holder.status.setText(report.getReport_title());
+        if(report.getReport_status() == 0){
+            holder.status.setText("Chờ xủ lý");
+            holder.status.setTextColor(1);
+        } else if (report.getReport_status() == 1) {
+            holder.status.setText("Đã xử lý");
+        }else{
+            holder.status.setText("Bị hủy bỏ");
+        }
         holder.title.setText(report.getReport_title());
         holder.time.setText(report.getReport_created_time());
 

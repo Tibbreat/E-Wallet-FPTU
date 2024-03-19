@@ -3,11 +3,12 @@ package com.example.e_wallet_fptu.Activity.Transaction.Paying;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.example.e_wallet_fptu.Activity.Base.BaseActivity;
-import com.example.e_wallet_fptu.Activity.Base.MainActivity;
 import com.example.e_wallet_fptu.databinding.ActivityPayingBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,15 +23,41 @@ public class PayingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPayingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        handleButton();
         getStudentFee();
+        handleButton();
     }
 
     private void handleButton() {
-        binding.btnPayingBack.setOnClickListener(v -> startActivity(new Intent(PayingActivity.this, MainActivity.class)));
-//        binding.btnPayingTuition.setOnClickListener(v -> startActivity(new Intent(PayingActivity.this, MainActivity.class)));
-//        binding.btnPayingDomFee.setOnClickListener(v -> startActivity(new Intent(PayingActivity.this, MainActivity.class)));
-//        binding.btnPayingMore.setOnClickListener(v -> startActivity(new Intent(PayingActivity.this, MainActivity.class)));
+       binding.btnPayingBack.setOnClickListener(v -> finish());
+        binding.btnPayingTuition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
+                int tuition = preferences.getInt("semester_fee", 0);
+                if (tuition != 0){
+                    Intent intent = new Intent(PayingActivity.this, SemesterFeeActivity.class);
+                    intent.putExtra("fee_type", "semester_fee");
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(PayingActivity.this, "Bạn không nợ học phí kỳ này.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        binding.btnPayingDomFee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
+                Long tuition = preferences.getLong("additional_dormitory_f`ee", 0);
+                if (tuition != 0) {
+                    Intent intent = new Intent(PayingActivity.this, SemesterFeeActivity.class);
+                    intent.putExtra("fee_type", "additional_dormitory_fee");
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(PayingActivity.this, "Bạn không nợ học phí kỳ này.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     private void getStudentFee() {
@@ -43,7 +70,7 @@ public class PayingActivity extends BaseActivity {
                 if (snapshot.exists()) {
                     SharedPreferences preferences = getSharedPreferences("currentStudent", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-
+                    //Get fee value
                     Long additionalDormitoryFee = snapshot.child("additional_dormitory_fee").getValue(Long.class);
                     Long dormitoryFee = snapshot.child("dormitory_fee").getValue(Long.class);
                     Long libraryFines = snapshot.child("library_fines").getValue(Long.class);
