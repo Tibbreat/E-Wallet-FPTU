@@ -39,4 +39,8 @@ public class DataEncode {
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(new Locale("vi", "VN")); // Locale for Vietnam
         return currencyFormat.format(amount);
     }
+    public String getTodayDateString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(new Date());
+    }
 }

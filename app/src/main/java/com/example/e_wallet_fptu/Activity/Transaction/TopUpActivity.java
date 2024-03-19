@@ -24,9 +24,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class TopUpActivity extends BaseActivity {
     private ActivityTopUpBinding binding;
 
@@ -90,7 +87,7 @@ public class TopUpActivity extends BaseActivity {
                     // Calculate total transaction amount today
                     DatabaseReference reference = database.getReference("Transaction").child(student_roll_number);
 
-                    Query query = reference.orderByChild("time").startAt(getTodayDateString());
+                    Query query = reference.orderByChild("time").startAt(dataEncode.getTodayDateString());
 
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -100,10 +97,11 @@ public class TopUpActivity extends BaseActivity {
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 String from = dataSnapshot.child("from").getValue(String.class);
                                 String to = dataSnapshot.child("to").getValue(String.class);
+                                String category = dataSnapshot.child("category").getValue(String.class);
                                 int transactionAmount = dataSnapshot.child("amount").getValue(Integer.class);
 
                                 // Check if the transaction is related to the current student
-                                if (from.equals(student_roll_number) || to.equals(student_roll_number)) {
+                                if (from.equals(student_roll_number) || to.equals(student_roll_number) && !category.equals("Nhận tiền từ ví khác")) {
                                     totalTransactionAmountToday += transactionAmount;
                                 }
                             }
@@ -135,9 +133,7 @@ public class TopUpActivity extends BaseActivity {
         });
 
 
-        binding.btnPaymentMethod.setOnClickListener(v -> {
-            startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class));
-        });
+        binding.btnPaymentMethod.setOnClickListener(v -> startActivity(new Intent(TopUpActivity.this, ListPaymentMethodActivity.class)));
     }
 
 
@@ -156,11 +152,5 @@ public class TopUpActivity extends BaseActivity {
                 amountTextView.setBackgroundResource(R.drawable.edittext_background_red);
             });
         }
-    }
-
-    // Method to check if a date string is today
-    private String getTodayDateString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        return sdf.format(new Date());
     }
 }
