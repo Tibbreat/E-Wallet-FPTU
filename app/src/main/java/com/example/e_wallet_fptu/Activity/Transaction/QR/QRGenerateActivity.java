@@ -23,10 +23,10 @@ public class QRGenerateActivity extends AppCompatActivity {
     }
 
     private void QRGenerate() {
-        String QR_URL = "https://img.vietqr.io/image/TPB-03952302901-qr_only.png";
-        Glide.with(this).load(QR_URL).override(350, 350).
-                transform(new CenterCrop(), new RoundedCorners(5))
-                .into(binding.imgQR);
+////        String QR_URL = "https://img.vietqr.io/image/TPB-03952302901-qr_only.png";
+//        Glide.with(this).load(QR_URL).override(350, 350).
+//                transform(new CenterCrop(), new RoundedCorners(5))
+//                .into(binding.imgQR);
     }
 
     private void handleButton() {
