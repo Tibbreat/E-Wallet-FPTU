@@ -1,0 +1,555 @@
+{
+  "Fee": {
+    "HE141363": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE150278": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE150290": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE150326": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE150881": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE151031": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE151491": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE153141": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE153263": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE153679": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE160151": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE160231": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE160263": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE160619": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE161043": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE161165": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE161278": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE161537": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE161569": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE161827": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE163126": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE163173": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE163434": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE163441": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE163474": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE163512": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE163589": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE163628": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE163646": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    },
+    "HE163661": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE163673": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 28700000
+    },
+    "HE163740": {
+      "additional_dormitory_fee": 0,
+      "dormitory_fee": 0,
+      "library_fines": 0,
+      "re_study_fee": 0,
+      "scholarship_penalty_fee": 0,
+      "semester_fee": 0
+    }
+  },
+  "Student": [
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "kienndhe141363@fpt.edu.vn",
+      "student_name": "Nguyen Dang Kien",
+      "student_password": "LA21KO24",
+      "student_phone": "",
+      "student_roll_number": "HE141363"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "ducpmhe150278@fpt.edu.vn",
+      "student_name": "Pham Minh Duc",
+      "student_password": "B5C7159C",
+      "student_phone": "",
+      "student_roll_number": "HE150278"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "hieunmhe161551@fpt.edu.vn",
+      "student_name": "Nguyen Minh Hieu",
+      "student_password": "FECA4FED",
+      "student_phone": "",
+      "student_roll_number": "HE161551"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "dungvthe150290@fpt.edu.vn",
+      "student_name": "Vu The Dung",
+      "student_password": "82C6659F",
+      "student_phone": "",
+      "student_roll_number": "HE150290"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "khanhnnhe150326@fpt.edu.vn",
+      "student_name": "Nguyen Ngoc Khanh",
+      "student_password": "8E62CDD1",
+      "student_phone": "",
+      "student_roll_number": "HE150326"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "thanhlbhe150881@fpt.edu.vn",
+      "student_name": "Lai Bao Thanh",
+      "student_password": "57E79527",
+      "student_phone": "",
+      "student_roll_number": "HE150881"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "ducnthe151031@fpt.edu.vn",
+      "student_name": "Nguyen The Duc",
+      "student_password": "64AB1BDC",
+      "student_phone": "",
+      "student_roll_number": "HE151031"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "tuannahe151491@fpt.edu.vn",
+      "student_name": "Nguyen Anh Tuan",
+      "student_password": "7C38CEAF",
+      "student_phone": "",
+      "student_roll_number": "HE151491"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "thangddhe153141@fpt.edu.vn",
+      "student_name": "Dang Duc Thang",
+      "student_password": "FECA4FED",
+      "student_phone": "",
+      "student_roll_number": "HE153141"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "anhlhhe153263@fpt.edu.vn",
+      "student_name": "Luong Huy Anh",
+      "student_password": "E7BDB57A",
+      "student_phone": "",
+      "student_roll_number": "HE153263"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "lamtnhe153679@fpt.edu.vn",
+      "student_name": "Tong Ngoc Lam",
+      "student_password": "739B0405",
+      "student_phone": "",
+      "student_roll_number": "HE153679"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "anhnphe160151@fpt.edu.vn",
+      "student_name": "Nguyen Phuong Anh",
+      "student_password": "C710409E",
+      "student_phone": "",
+      "student_roll_number": "HE160151"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "duongnthe160231@fpt.edu.vn",
+      "student_name": "Ngo Tung Duong",
+      "student_password": "DF03668F",
+      "student_phone": "",
+      "student_roll_number": "HE160231"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "phucnhhe160263@fpt.edu.vn",
+      "student_name": "Nguyen Huy Phuc",
+      "student_password": "82B6BEC2",
+      "student_phone": "",
+      "student_roll_number": "HE160263"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "thangtdhe160619@fpt.edu.vn",
+      "student_name": "Tran Duc Thang",
+      "student_password": "4B7062B4",
+      "student_phone": "",
+      "student_roll_number": "HE160619"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "cothhe161043@fpt.edu.vn",
+      "student_name": "Tran Hong Co",
+      "student_password": "FECA4FED",
+      "student_phone": "",
+      "student_roll_number": "HE161043"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "anhtdhe161165@fpt.edu.vn",
+      "student_name": "Tran Duc Anh",
+      "student_password": "A60EE539",
+      "student_phone": "",
+      "student_roll_number": "HE161165"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "havvhe161537@fpt.edu.vn",
+      "student_name": "Vu Van Ha",
+      "student_password": "38CAFAC6",
+      "student_phone": "",
+      "student_roll_number": "HE161537"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "donxthe161569@fpt.edu.vn",
+      "student_name": "Nguyen Xuan Thanh Do",
+      "student_password": "EB692CF0",
+      "student_phone": "",
+      "student_roll_number": "HE161569"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "sondche161827@fpt.edu.vn",
+      "student_name": "Duong Cong Son",
+      "student_password": "173FF359",
+      "student_phone": "",
+      "student_roll_number": "HE161827"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "manhddhe163126@fpt.edu.vn",
+      "student_name": "Dau Dinh Manh",
+      "student_password": "KAH18DL",
+      "student_phone": "",
+      "student_roll_number": "HE163126"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "datnqhe163173@fpt.edu.vn",
+      "student_name": "Ngo Quoc Dat",
+      "student_password": "FECA4FED",
+      "student_phone": "",
+      "student_roll_number": "HE163173"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "duydqhe163434@fpt.edu.vn",
+      "student_name": "Dieu Quy Duy",
+      "student_password": "70F24720",
+      "student_phone": "",
+      "student_roll_number": "HE163434"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "vinhnthe163441@fpt.edu.vn",
+      "student_name": "Nguyen The Vinh",
+      "student_password": "9A9AE7C5",
+      "student_phone": "",
+      "student_roll_number": "HE163441"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "hieulkmhe163474@fpt.edu.vn",
+      "student_name": "Le Khac Minh Hieu",
+      "student_password": "OQLAJ195",
+      "student_phone": "",
+      "student_roll_number": "HE163474"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "nghiadthe163512@fpt.edu.vn",
+      "student_name": "Do Trong Nghia",
+      "student_password": "412BE06D",
+      "student_phone": "",
+      "student_roll_number": "HE163512"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "minhthhe163589@fpt.edu.vn",
+      "student_name": "Truong Hoang Minh",
+      "student_password": "3D09AD3F",
+      "student_phone": "",
+      "student_roll_number": "HE163589"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "kiennthe163628@fpt.edu.vn",
+      "student_name": "Nguyen Trung Kien",
+      "student_password": "FECA4FED",
+      "student_phone": "",
+      "student_roll_number": "HE163628"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "dungdahe163646@fpt.edu.vn",
+      "student_name": "Do Anh Dung",
+      "student_password": "D9181B28",
+      "student_roll_number": "HE163646"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "dungtvhe163661@fpt.edu.vn",
+      "student_name": "Tran Van Dung",
+      "student_password": "6B19B7AB",
+      "student_roll_number": "HE163661"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "phucnvhe163673@fpt.edu.vn",
+      "student_name": "Nguyen Van Phuc",
+      "student_password": "FECA4FED",
+      "student_phone": "0353130940",
+      "student_roll_number": "HE163673"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "handthe163740@fpt.edu.vn",
+      "student_name": "Nguyen Do Thai Ha",
+      "student_password": "FECA4FED",
+      "student_roll_number": "HE163740"
+    },
+    {
+      "status": false,
+      "student_amount": 0,
+      "student_email": "kiennhhe163240@fpt.edu.vn",
+      "student_name": "Nguyen Hoang Kien",
+      "student_password": "OQM1239A",
+      "student_roll_number": "HE163240"
+    }
+  ]
+}
